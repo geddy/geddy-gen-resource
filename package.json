@@ -1,0 +1,19 @@
+
+{
+  "name": "geddy-gen-resource",
+  "version": "0.0.1",
+  "description": "Experimental resource generator for the geddy MVC framework.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "keywords": [
+    "geddy",
+    "Web",
+    "framework",
+    "REST",
+    "MVC"
+  ],
+  "dependencies": {"utilities":"*","jake":"*"}
+}
