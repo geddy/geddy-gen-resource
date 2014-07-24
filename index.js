@@ -2,7 +2,7 @@ var jake = require('jake');
 var path = require('path');
 
 module.exports = function(appPath, args) {
-  var validTasks = ['default', 'help'];
+  var validTasks = ['default', 'create', 'help'];
 
   // keep support of old style gen syntax
   if (args.length > 0 && validTasks.indexOf(args[0]) === -1) {
