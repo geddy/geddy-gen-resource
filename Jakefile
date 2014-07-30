@@ -81,7 +81,7 @@ task('create', {async: true}, function (name) {
 
     genModel(appPath, [name].concat(modelProperties));
     genController(appPath, [name]);
-    
+
     complete();
   }
 });
