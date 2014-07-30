@@ -1,18 +1,14 @@
-var fs = require('fs');
 var path = require('path')
+  , fs = require('fs')
+  , cwd = process.cwd()
   , utilities = require('utilities')
-  , geddyPath = path.normalize(path.join(require.resolve('geddy'), '../../'));
-
-var exec = require('child_process').exec;
+  , genutils = require('geddy-genutils')
+  , exec = require('child_process').exec
+  , genDirname = __dirname;
 
 // Load the basic Geddy toolkit
-require(path.join(geddyPath,'lib/geddy'));
-
-// Dependencies
-var cwd = process.cwd()
-  , utils = require(path.join(geddyPath, 'lib/utils'))
-  , Adapter = require(path.join(geddyPath, 'lib/template/adapters')).Adapter
-  , genDirname = __dirname;
+genutils.loadGeddy();
+var utils = genutils.loadGeddyUtils();
 
 // Tasks
 
@@ -85,7 +81,7 @@ task('create', {async: true}, function (name) {
 
     genModel(appPath, [name].concat(modelProperties));
     genController(appPath, [name]);
-
+    
     complete();
   }
 });
