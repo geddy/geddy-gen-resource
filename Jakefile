@@ -23,6 +23,11 @@ task('default', function() {
 namespace(ns, function() {
   // Creates a resource with a model, controller and a resource route
   task('create', {async: true}, function (name) {
+    if (!genutils.inAppRoot()) {
+      fail('You must run this generator from the root of your application.');
+      return;
+    }
+
     if (!name) {
       fail('No resource name specified.');
       return;
@@ -32,10 +37,6 @@ namespace(ns, function() {
     var modelProperties = Array.prototype.slice.call(arguments, 1);
 
     var modelsDir = path.join(appPath, 'app', 'models');
-    if (!fs.existsSync(modelsDir) || !fs.statSync(modelsDir).isDirectory()) {
-      fail('You must run this generator from the root of your application.');
-      return;
-    }
 
     // check for geddy-gen-controller and geddy-gen-model
     testGenController();
