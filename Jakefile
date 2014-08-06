@@ -82,8 +82,8 @@ namespace(ns, function() {
 
     function createResource()
     {
-      genutils.runGen('geddy-gen-model', null, [name].concat(modelProperties),
-        genutils.runGen.bind(genutils, 'geddy-gen-controller', null, [name, '--resource'], complete)
+      genutils.runGen('geddy-gen-model', [name].concat(modelProperties),
+        genutils.runGen.bind(genutils, 'geddy-gen-controller', [name, '--resource'], complete)
       );
     }
   });
